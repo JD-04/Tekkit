@@ -123,7 +123,7 @@ end
         return "V1"
     end
 
-    if _G.TekkitLoaded == 1 then
+    if _G.TekkitLoaded == 10000 then
         Notification("Another instance of Tekkit already loaded")
         print("Another instance of Tekkit already loaded")
         return
@@ -457,7 +457,7 @@ end
     _G.TekkitLoaded = 1
     wait(1)
     notis = require(game.ReplicatedStorage:WaitForChild("Notification"))
-
+    
     function HopServer(bO)
         if _G.HopActivated then return end
         _G.HopActivated = true
@@ -3577,6 +3577,9 @@ end
 
     local main = window:AddTab({ Title = "Main" })
     local mainFarmGroup = main:AddGroup({ Title = "Main" })
+    local misctab = Window:AddTab({ Title = "Misc" })
+    local miscFarmItemsGroup = misctab:AddGroup({ Title = "Misc Farm Items" })
+    getgenv().TekkitSettings = getgenv().TekkitSettings or {}
 
     mainFarmGroup:AddSlider({
         Title = "Atk Speed Delay",
@@ -3855,9 +3858,6 @@ end
         end
     end)
 
-local misctab = Window:AddTab({ Title = "Misc" })
-local miscFarmItemsGroup = misctab:AddGroup({ Title = "Misc Farm Items" })
-getgenv().TekkitSettings = getgenv().TekkitSettings or {}
 
 
         SoulGuitarEctoplasm = false
