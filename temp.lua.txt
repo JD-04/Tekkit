@@ -457,16 +457,6 @@ end
     _G.TekkitLoaded = 1
     wait(1)
     notis = require(game.ReplicatedStorage:WaitForChild("Notification"))
-    TekkitUI:Notify("<Color=Red>Tekkit<Color=/><Color=Yellow> loaded successfully<Color=/>")
-    TekkitUI:Notify("<Color=Red>Tekkit<Color=/><Color=Yellow> loaded successfully<Color=/>")
-    TekkitUI:Notify("<Color=Red>Tekkit<Color=/><Color=Yellow> loaded successfully<Color=/>")
-    print("Tekkit Loaded Successfully")
-    -- if ReplicatedStorage.Effect.Container:FindFirstChild("Death") then
-    --     ReplicatedStorage.Effect.Container.Death:Destroy()
-    -- end
-    -- if ReplicatedStorage.Effect.Container:FindFirstChild("Respawn") then
-    --     ReplicatedStorage.Effect.Container.Respawn:Destroy()
-    -- end
 
     function HopServer(bO)
         if _G.HopActivated then return end
