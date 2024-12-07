@@ -112,7 +112,7 @@ function ArcaneUI.CreateLib(Title)
     ImgButton.Position = UDim2.new(0.1,0.1)
     ImgButton.Size = UDim2.new(0.0, 40, 0.0, 40)
     ImgButton.ZIndex = -1
-    ImgButton.Image = "rbxassetid://17375678788"
+    ImgButton.Image = "rbxassetid://93903637642712"
     ImgButton.ImageRectOffset = Vector2.new(0)
     ImgButton.ImageRectSize = Vector2.new(50,50)
     ImgButton.MouseButton1Click:Connect(function()
