@@ -16,10 +16,10 @@ local activeColor = Color3.fromRGB(0,0,255)
 local inactiveColor = Color3.fromRGB(54, 54, 54)
 local fontWeightTitle = Enum.FontWeight.Bold
 local fontWeightDefault = Enum.FontWeight.Medium
-local fontSizeTitle = 36
-local fontSizeButton = 20
-local fontSizeDefault = 22
-local fontSizeSection = 24
+local fontSizeTitle = 32
+local fontSizeButton = 18
+local fontSizeDefault = 20
+local fontSizeSection = 22
 local baseName = "ArcaneUILib"
 
 
