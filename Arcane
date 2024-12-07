@@ -162,7 +162,7 @@ function ArcaneUI.CreateLib(Title)
     FrameMain.BackgroundTransparency = 0
     FrameMain.BackgroundColor3 = backgroundColor2
     FrameMain.ClipsDescendants = true
-    FrameMain.Position = UDim2.new(0.5, (sizeX/2) - sizeX, 0.5, (sizeY/2) - sizeY)
+    FrameMain.Position = UDim2.new(0.5, (sizeX/1.5) - sizeX, 0.5, (sizeY/1.5) - sizeY)
     FrameMain.Size = UDim2.new(0, sizeX, 0, sizeY)
     ArcaneUI:DraggingEnabled(FrameMain, FrameMain)
 
