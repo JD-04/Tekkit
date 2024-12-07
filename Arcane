@@ -83,8 +83,8 @@ function ArcaneUI:Destroy()
 end
 
 function ArcaneUI.CreateLib(Title)
-    sizeX = 800 
-    sizeY = 620
+    sizeX = 640
+    sizeY = 496
     ArcaneUI:Destroy()
     local ScreenGuiMainButton = Instance.new("ScreenGui")
     local MainButton = Instance.new("Frame")
