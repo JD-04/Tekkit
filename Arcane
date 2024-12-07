@@ -865,7 +865,7 @@ function ArcaneUI.CreateLib(Title)
             function Elements:NewSlider(slidInf, minvalue, maxvalue, callback)
                 sliderFunctions = {}
                 slidInf = slidInf or "Slider"
-                maxvalue = maxvalue or 500
+                maxvalue = maxvalue or 300
                 minvalue = minvalue or 16
                 startVal = startVal or 0
                 callback = callback or function() end
@@ -885,7 +885,7 @@ function ArcaneUI.CreateLib(Title)
                 sliderElement.Parent = sectionInners
                 sliderElement.BackgroundColor3 = accentColor2
                 sliderElement.ClipsDescendants = true
-                sliderElement.Size = UDim2.new(0.0, 424, 0.0, 30)
+                sliderElement.Size = UDim2.new(0.0, 350, 0.0, 30)
                 sliderElement.AutoButtonColor = false
                 sliderElement.Font = Enum.Font.SourceSans
                 sliderElement.Text = ""
