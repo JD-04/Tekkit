@@ -162,7 +162,7 @@ function ArcaneUI.CreateLib(Title)
     FrameMain.BackgroundTransparency = 0
     FrameMain.BackgroundColor3 = backgroundColor2
     FrameMain.ClipsDescendants = true
-    FrameMain.Position = UDim2.new(0.1, (sizeX/2) - sizeX, 0.1, (sizeY/2) - sizeY)
+    FrameMain.Position = UDim2.new(0.5, (sizeX/2) - sizeX, 0.5, (sizeY/2) - sizeY)
     FrameMain.Size = UDim2.new(0, sizeX, 0, sizeY)
     ArcaneUI:DraggingEnabled(FrameMain, FrameMain)
 
@@ -201,7 +201,7 @@ function ArcaneUI.CreateLib(Title)
         -- wait()
         -- game.TweenService:Create(Main, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {
 		-- 	Size = UDim2.new(0.0, 0, 0.0, 0),
-		-- 	Position = UDim2.new(0, Main.AbsolutePosition.X + (Main.AbsoluteSize.X / 2), 0, Main.AbsolutePosition.Y + (Main.AbsoluteSize.Y / 2))
+		-- 	Position = UDim2.new(0, Main.AbsolutePosition.X + (Main.AbsoluteSize.X / 5), 0, Main.AbsolutePosition.Y + (Main.AbsoluteSize.Y / 5))
 		-- }):Play()
         -- wait(1)
         ArcaneUI:ToggleUI()
