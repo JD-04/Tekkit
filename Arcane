@@ -9,10 +9,10 @@ local Utility = {}
 local Objects = {}
 
 local accentColor1 = Color3.fromRGB(255,255,255)
-local accentColor2 = Color3.fromRGB(0,0,0)
-local backgroundColor1 = Color3.fromRGB(25,26,28)
-local backgroundColor2 = Color3.fromRGB(42,44,47)
-local activeColor = Color3.fromRGB(255,0,169)
+local accentColor2 = Color3.fromRGB(82, 82, 82)
+local backgroundColor1 = Color3.fromRGB(0,0,0)
+local backgroundColor2 = Color3.fromRGB(0,0,0)
+local activeColor = Color3.fromRGB(0,0,255)
 local inactiveColor = Color3.fromRGB(25,26,28)
 local fontWeightTitle = Enum.FontWeight.Bold
 local fontWeightDefault = Enum.FontWeight.Medium
@@ -83,8 +83,8 @@ function ArcaneUI:Destroy()
 end
 
 function ArcaneUI.CreateLib(Title)
-    sizeX = 800 
-    sizeY = 620
+    sizeX = 640
+    sizeY = 496
     ArcaneUI:Destroy()
     local ScreenGuiMainButton = Instance.new("ScreenGui")
     local MainButton = Instance.new("Frame")
@@ -99,7 +99,7 @@ function ArcaneUI.CreateLib(Title)
     MainButton.BackgroundColor3 = Color3.fromRGB(0,0,0)
     MainButton.BackgroundTransparency = 1
     MainButton.ClipsDescendants = false
-    MainButton.Position = UDim2.new(0.096, 0, 0.096, 0)
+    MainButton.Position = UDim2.new(0.12, 0, 0.12, 0)
     MainButton.Size = UDim2.new(0.0, 48, 0.0, 48)
     
     ArcaneUI:DraggingEnabled(ImgButton, MainButton)
