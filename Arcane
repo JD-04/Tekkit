@@ -9,11 +9,11 @@ local Utility = {}
 local Objects = {}
 
 local accentColor1 = Color3.fromRGB(255,255,255)
-local accentColor2 = Color3.fromRGB(82, 82, 82)
+local accentColor2 = Color3.fromRGB(54, 54, 54)
 local backgroundColor1 = Color3.fromRGB(0,0,0)
 local backgroundColor2 = Color3.fromRGB(0,0,0)
 local activeColor = Color3.fromRGB(0,0,255)
-local inactiveColor = Color3.fromRGB(25,26,28)
+local inactiveColor = Color3.fromRGB(255,255,255)
 local fontWeightTitle = Enum.FontWeight.Bold
 local fontWeightDefault = Enum.FontWeight.Medium
 local fontSizeTitle = 36
