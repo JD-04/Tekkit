@@ -885,7 +885,7 @@ function ArcaneUI.CreateLib(Title)
                 sliderElement.Parent = sectionInners
                 sliderElement.BackgroundColor3 = accentColor2
                 sliderElement.ClipsDescendants = true
-                sliderElement.Size = UDim2.new(0.0, 436, 0.0, 30)
+                sliderElement.Size = UDim2.new(0.0, 424, 0.0, 30)
                 sliderElement.AutoButtonColor = false
                 sliderElement.Font = Enum.Font.SourceSans
                 sliderElement.Text = ""
@@ -915,7 +915,7 @@ function ArcaneUI.CreateLib(Title)
                 sliderBtn.BorderSizePixel = 0
                 sliderBtn.Position = UDim2.new(0.0, 266, 0.0, 7)
                 sliderBtnHeight = 20
-                sliderBtnWidth = 185
+                sliderBtnWidth = 150
                 sliderBtn.Size = UDim2.new(0, sliderBtnWidth, 0, sliderBtnHeight)
                 sliderBtn.AutoButtonColor = false
                 sliderBtn.Font = Enum.Font.SourceSans
