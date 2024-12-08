@@ -172,7 +172,7 @@ function ArcaneUI.CreateLib(Title)
 
     FrameTitle.Text = Title
     FrameTitle.Position = UDim2.new(0.0, 8, 0.0, 8)
-    FrameTitle.FontFace = Font.fromName("Montserrat", fontWeightTitle)
+    FrameTitle.FontFace = Font.fromName("Arcade", fontWeightTitle)
     FrameTitle.RichText = false
     FrameTitle.Parent = FrameMain
     FrameTitle.BackgroundTransparency = 1
@@ -294,7 +294,7 @@ function ArcaneUI.CreateLib(Title)
         tabButton.BackgroundColor3 = backgroundColor2
         tabButton.Size = UDim2.new(0.0, 176, 0.0, 30)
         tabButton.AutoButtonColor = false
-        tabButton.FontFace = Font.fromName("Montserrat", fontWeightDefault)
+        tabButton.FontFace = Font.fromName("Arcade", fontWeightDefault)
         tabButton.RichText = false
         tabButton.Text = tabName
         tabButton.TextXAlignment = Enum.TextXAlignment.Left
@@ -436,7 +436,7 @@ function ArcaneUI.CreateLib(Title)
             sectionName.BorderSizePixel = 0
             sectionName.Position = UDim2.new(0.0, 1, 0.0, 0)
             sectionName.Size = UDim2.new(0.8, 0, 0.8, 0)
-            sectionName.FontFace = Font.fromName("Montserrat", Enum.FontWeight.ExtraBold)
+            sectionName.FontFace = Font.fromName("Arcade", Enum.FontWeight.ExtraBold)
             sectionName.Text = secName
             sectionName.RichText = true
             sectionName.TextColor3 = accentColor1
@@ -525,7 +525,7 @@ function ArcaneUI.CreateLib(Title)
                 btnInfo.Position = UDim2.new(0.0, 45, 0.0, 2)
                 btnInfo.Size = UDim2.new(0.0, 378, 0.0, 32)
                 btnInfo.Text = bname
-                btnInfo.FontFace = Font.fromName("Montserrat", Enum.FontWeight.Medium)
+                btnInfo.FontFace = Font.fromName("Arcade", Enum.FontWeight.Medium)
                 btnInfo.RichText = true
                 btnInfo.TextColor3 = accentColor1
                 btnInfo.TextSize = fontSizeDefault
@@ -625,7 +625,7 @@ function ArcaneUI.CreateLib(Title)
                 TextBox.PlaceholderColor3 = Color3.fromRGB(150, 150, 150)
                 TextBox.PlaceholderText = "Type here..."
                 TextBox.Text = ""
-                TextBox.FontFace = Font.fromName("Montserrat", Enum.FontWeight.Medium)
+                TextBox.FontFace = Font.fromName("Arcade", Enum.FontWeight.Medium)
                 TextBox.RichText = true
                 TextBox.TextColor3 = accentColor1
                 TextBox.TextSize = fontSizeButton
@@ -642,7 +642,7 @@ function ArcaneUI.CreateLib(Title)
                 togName.Size = UDim2.new(0.0, 159, 0.0, 32)
                 togName.Font = Enum.Font.GothamSemibold
                 togName.Text = tname
-                togName.FontFace = Font.fromName("Montserrat", Enum.FontWeight.Medium)
+                togName.FontFace = Font.fromName("Arcade", Enum.FontWeight.Medium)
                 togName.RichText = true
                 togName.TextColor3 = accentColor1
                 togName.TextSize = fontSizeDefault
@@ -777,7 +777,7 @@ function ArcaneUI.CreateLib(Title)
                 togName.Position = UDim2.new(0.0, 45, 0.0, 0)
                 togName.Size = UDim2.new(0.0, 378, 0.0, 28)
                 togName.Text = tname
-                togName.FontFace = Font.fromName("Montserrat", Enum.FontWeight.Medium)
+                togName.FontFace = Font.fromName("Arcade", Enum.FontWeight.Medium)
                 togName.RichText = true
                 togName.TextColor3 = accentColor1
                 togName.TextSize = fontSizeDefault
@@ -902,7 +902,7 @@ function ArcaneUI.CreateLib(Title)
                 sliderName.Position = UDim2.new(0.0, 8, 0.0, 1)
                 sliderName.Size = UDim2.new(0.0, 176, 0.0, 28)
                 sliderName.Text = slidInf
-                sliderName.FontFace = Font.fromName("Montserrat", Enum.FontWeight.Medium)
+                sliderName.FontFace = Font.fromName("Arcade", Enum.FontWeight.Medium)
                 sliderName.RichText = true
                 sliderName.TextColor3 = accentColor1
                 sliderName.TextSize = fontSizeDefault
@@ -955,7 +955,7 @@ function ArcaneUI.CreateLib(Title)
                 val.Position = UDim2.new(0.0, 232, 0.0, 1)
                 val.Size = UDim2.new(0.0, 31, 0.0, 28)
                 val.Text = minvalue
-                val.FontFace = Font.fromName("Montserrat", Enum.FontWeight.Medium)
+                val.FontFace = Font.fromName("Arcade", Enum.FontWeight.Medium)
                 val.RichText = true
                 val.TextColor3 = accentColor1
                 val.TextSize = fontSizeDefault
@@ -1231,7 +1231,7 @@ function ArcaneUI.CreateLib(Title)
                 itemTextbox.Position = UDim2.new(0.0, 45, 0.0, 1)
                 itemTextbox.Size = UDim2.new(0.0, 378, 0.0, 32)
                 itemTextbox.Text = dropname .. ": None"
-                itemTextbox.FontFace = Font.fromName("Montserrat", Enum.FontWeight.Medium)
+                itemTextbox.FontFace = Font.fromName("Arcade", Enum.FontWeight.Medium)
                 itemTextbox.RichText = true
                 itemTextbox.TextColor3 = accentColor1
                 itemTextbox.TextSize = fontSizeDefault
@@ -1303,7 +1303,7 @@ function ArcaneUI.CreateLib(Title)
                     optionSelect.Size = UDim2.new(0.0, 397, 0.0, 29)
                     optionSelect.AutoButtonColor = false
                     optionSelect.Text = "  "..v
-                    optionSelect.FontFace = Font.fromName("Montserrat", Enum.FontWeight.Medium)
+                    optionSelect.FontFace = Font.fromName("Arcade", Enum.FontWeight.Medium)
                     optionSelect.RichText = true
                     optionSelect.TextColor3 = accentColor1
                     optionSelect.TextSize = fontSizeDefault
@@ -1393,7 +1393,7 @@ function ArcaneUI.CreateLib(Title)
                         optionSelect.Size = UDim2.new(0.0, 397, 0.0, 29)
                         optionSelect.AutoButtonColor = false
                         optionSelect.Text = "  "..v
-                        optionSelect.FontFace = Font.fromName("Montserrat", Enum.FontWeight.Medium)
+                        optionSelect.FontFace = Font.fromName("Arcade", Enum.FontWeight.Medium)
                         optionSelect.RichText = true
                         optionSelect.TextColor3 = accentColor1
                         optionSelect.TextSize = fontSizeDefault
@@ -1561,7 +1561,7 @@ function ArcaneUI.CreateLib(Title)
                 togName.Position = UDim2.new(0.0, 8, 0.0, 1)
                 togName.Size = UDim2.new(0.0, 177, 0.0, 28)
                 togName.Text = keytext
-                togName.FontFace = Font.fromName("Montserrat", Enum.FontWeight.Medium)
+                togName.FontFace = Font.fromName("Arcade", Enum.FontWeight.Medium)
                 togName.RichText = true
                 togName.TextColor3 = accentColor1
                 togName.TextSize = fontSizeDefault
@@ -1597,7 +1597,7 @@ function ArcaneUI.CreateLib(Title)
                 togName_2.Position = UDim2.new(0.5819090368000001, 0, 0.0, 1)
                 togName_2.Size = UDim2.new(0.0, 56, 0.0, 28)
                 togName_2.Text = oldKey
-                togName_2.FontFace = Font.fromName("Montserrat", Enum.FontWeight.Medium)
+                togName_2.FontFace = Font.fromName("Arcade", Enum.FontWeight.Medium)
                 togName_2.RichText = true
                 togName_2.TextColor3 = accentColor1
                 togName_2.TextSize = fontSizeDefault
@@ -1616,7 +1616,7 @@ function ArcaneUI.CreateLib(Title)
             	label.Text = " "..title
            		label.Size = UDim2.new(0.0, 378, 0.0, 19)
                 label.Position = UDim2.new(0.0, 4, 0.0, 0)
-                label.FontFace = Font.fromName("Montserrat", fontWeightDefault)
+                label.FontFace = Font.fromName("Arcade", fontWeightDefault)
                 label.RichText = true
 	            label.TextColor3 = accentColor1
 	            label.TextSize = fontSizeButton
