@@ -110,7 +110,7 @@ function ArcaneUI.CreateLib(Title)
     ImgButton.Position = UDim2.new(0.1,0.1)
     ImgButton.Size = UDim2.new(0.0, 40, 0.0, 40)
     ImgButton.ZIndex = -1
-    ImgButton.Image = "rbxassetid://93903637642712"
+    ImgButton.Image = "rbxassetid://3926305904"
     ImgButton.ImageRectOffset = Vector2.new(0)
     ImgButton.ImageRectSize = Vector2.new(50,50)
     ImgButton.MouseButton1Click:Connect(function()
@@ -510,7 +510,7 @@ function ArcaneUI.CreateLib(Title)
                 touch.BorderSizePixel = 0
                 touch.Position = UDim2.new(0.0, 9, 0.0, 6)
                 touch.Size = UDim2.new(0.0, 24, 0.0, 24)
-                touch.Image = "rbxassetid://93903637642712"
+                touch.Image = "rbxassetid://3926305904"
                 touch.ImageColor3 = activeColor
                 touch.ImageRectOffset = Vector2.new(84, 204)
                 touch.ImageRectSize = Vector2.new(36, 36)
