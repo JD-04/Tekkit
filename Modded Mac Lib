@@ -107,7 +107,7 @@ function MacLib:Window(Settings)
 	base.Name = "Base"
 	base.AnchorPoint = Vector2.new(0.5, 0.5)
 	base.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
-	base.BackgroundTransparency = Settings.AcrylicBlur and 0.7 or 0.7
+	base.BackgroundTransparency = Settings.AcrylicBlur and 0.5 or 0.5
 	base.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	base.BorderSizePixel = 0
 	base.Position = UDim2.fromScale(0.5, 0.5)
@@ -420,7 +420,7 @@ function MacLib:Window(Settings)
 	subtitle.RichText = true
 	subtitle.TextColor3 = Color3.fromRGB(255, 255, 255)
 	subtitle.TextSize = 12
-	subtitle.TextTransparency = 0.7
+	subtitle.TextTransparency = 0.5
 	subtitle.TextTruncate = Enum.TextTruncate.SplitWord
 	subtitle.TextXAlignment = Enum.TextXAlignment.Left
 	subtitle.TextYAlignment = Enum.TextYAlignment.Top
@@ -567,7 +567,7 @@ function MacLib:Window(Settings)
 	username.Text = "@" .. LocalPlayer.Name
 	username.TextColor3 = Color3.fromRGB(255, 255, 255)
 	username.TextSize = 12
-	username.TextTransparency = 0.7
+	username.TextTransparency = 0.5
 	username.TextTruncate = Enum.TextTruncate.SplitWord
 	username.TextXAlignment = Enum.TextXAlignment.Left
 	username.TextYAlignment = Enum.TextYAlignment.Top
@@ -741,7 +741,7 @@ function MacLib:Window(Settings)
 	local moveIcon = Instance.new("ImageButton")
 	moveIcon.Name = "MoveIcon"
 	moveIcon.Image = assets.transform
-	moveIcon.ImageTransparency = 0.7
+	moveIcon.ImageTransparency = 0.5
 	moveIcon.AnchorPoint = Vector2.new(1, 0.5)
 	moveIcon.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 	moveIcon.BackgroundTransparency = 1
@@ -770,7 +770,7 @@ function MacLib:Window(Settings)
 	local function ChangemoveIconState(State)
 		if State == "Default" then
 			Tween(moveIcon, TweenInfo.new(0.2, Enum.EasingStyle.Sine), {
-				ImageTransparency = 0.7
+				ImageTransparency = 0.5
 			}):Play()
 		elseif State == "Hover" then
 			Tween(moveIcon, TweenInfo.new(0.2, Enum.EasingStyle.Sine), {
@@ -4421,7 +4421,7 @@ function MacLib:Window(Settings)
 					subLabelText.Text = SubLabelFunctions.Settings.Text or SubLabelFunctions.Settings.Name -- Settings.Name Deprecated use Settings.Text
 					subLabelText.TextColor3 = Color3.fromRGB(255, 255, 255)
 					subLabelText.TextSize = 12
-					subLabelText.TextTransparency = 0.7
+					subLabelText.TextTransparency = 0.5
 					subLabelText.TextWrapped = true
 					subLabelText.TextXAlignment = Enum.TextXAlignment.Left
 					subLabelText.AutomaticSize = Enum.AutomaticSize.Y
@@ -5320,7 +5320,7 @@ function MacLib:Window(Settings)
 
     function WindowFunctions:SetAcrylicBlurState(State)
         acrylicBlur = State
-        base.BackgroundTransparency = State and 0.7 or 0.7
+        base.BackgroundTransparency = State and 0.5 or 0.5
     end
 
 	function WindowFunctions:GetAcrylicBlurState()
