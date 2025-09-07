@@ -107,7 +107,7 @@ function MacLib:Window(Settings)
 	base.Name = "Base"
 	base.AnchorPoint = Vector2.new(0.5, 0.5)
 	base.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
-	base.BackgroundTransparency = Settings.AcrylicBlur and 0.4 or 0.4
+	base.BackgroundTransparency = Settings.AcrylicBlur and 0.23 or 0.23
 	base.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	base.BorderSizePixel = 0
 	base.Position = UDim2.fromScale(0.5, 0.5)
@@ -365,7 +365,7 @@ function MacLib:Window(Settings)
 			}):Play()
 		elseif State == "Hover" then
 			Tween(globalSettingsButton, TweenInfo.new(0.2, Enum.EasingStyle.Sine), {
-				ImageTransparency = 0.4
+				ImageTransparency = 0.23
 			}):Play()
 		end
 	end
@@ -774,7 +774,7 @@ function MacLib:Window(Settings)
 			}):Play()
 		elseif State == "Hover" then
 			Tween(moveIcon, TweenInfo.new(0.2, Enum.EasingStyle.Sine), {
-				ImageTransparency = 0.4
+				ImageTransparency = 0.23
 			}):Play()
 		end
 	end
@@ -1641,7 +1641,7 @@ function MacLib:Window(Settings)
 
 					local TweenSettings = {
 						DefaultTransparency = 0.5,
-						HoverTransparency = 0.4,
+						HoverTransparency = 0.23,
 
 						EasingStyle = Enum.EasingStyle.Sine
 					}
@@ -1925,7 +1925,7 @@ function MacLib:Window(Settings)
 					sliderBar.BackgroundTransparency = 1
 					sliderBar.BorderColor3 = Color3.fromRGB(0, 0, 0)
 					sliderBar.BorderSizePixel = 0
-					sliderBar.Position = UDim2.fromScale(0.219, 0.457)
+					sliderBar.Position = UDim2.fromScale(0.219, 0.2357)
 					sliderBar.Size = UDim2.fromOffset(123, 3)
 
 					local sliderHead = Instance.new("ImageButton")
@@ -3919,7 +3919,7 @@ function MacLib:Window(Settings)
 					paragraphHeader.Text = ColorpickerFunctions.Settings.Name
 					paragraphHeader.TextColor3 = Color3.fromRGB(255, 255, 255)
 					paragraphHeader.TextSize = 18
-					paragraphHeader.TextTransparency = 0.4
+					paragraphHeader.TextTransparency = 0.23
 					paragraphHeader.TextWrapped = true
 					paragraphHeader.TextYAlignment = Enum.TextYAlignment.Top
 					paragraphHeader.AutomaticSize = Enum.AutomaticSize.XY
@@ -4333,7 +4333,7 @@ function MacLib:Window(Settings)
 					headerText.Text = HeaderFunctions.Settings.Text or HeaderFunctions.Settings.Name
 					headerText.TextColor3 = Color3.fromRGB(255, 255, 255)
 					headerText.TextSize = 16
-					headerText.TextTransparency = 0.4
+					headerText.TextTransparency = 0.23
 					headerText.TextWrapped = true
 					headerText.TextXAlignment = Enum.TextXAlignment.Left
 					headerText.AutomaticSize = Enum.AutomaticSize.Y
@@ -4469,7 +4469,7 @@ function MacLib:Window(Settings)
 					paragraphHeader.Text = ParagraphFunctions.Settings.Header
 					paragraphHeader.TextColor3 = Color3.fromRGB(255, 255, 255)
 					paragraphHeader.TextSize = 15
-					paragraphHeader.TextTransparency = 0.4
+					paragraphHeader.TextTransparency = 0.23
 					paragraphHeader.TextWrapped = true
 					paragraphHeader.TextXAlignment = Enum.TextXAlignment.Left
 					paragraphHeader.AutomaticSize = Enum.AutomaticSize.Y
@@ -5068,7 +5068,7 @@ function MacLib:Window(Settings)
 		paragraphHeader.Text = Settings.Title
 		paragraphHeader.TextColor3 = Color3.fromRGB(255, 255, 255)
 		paragraphHeader.TextSize = 18
-		paragraphHeader.TextTransparency = 0.4
+		paragraphHeader.TextTransparency = 0.23
 		paragraphHeader.TextWrapped = true
 		paragraphHeader.AutomaticSize = Enum.AutomaticSize.Y
 		paragraphHeader.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -5192,7 +5192,7 @@ function MacLib:Window(Settings)
 			local TweenSettings = {
 				DefaultTransparency = 0,
 				DefaultTransparency2 = 0.5,
-				HoverTransparency = 0.4,
+				HoverTransparency = 0.23,
 				HoverTransparency2 = 0.6,
 
 				EasingStyle = Enum.EasingStyle.Sine
@@ -5320,7 +5320,7 @@ function MacLib:Window(Settings)
 
     function WindowFunctions:SetAcrylicBlurState(State)
         acrylicBlur = State
-        base.BackgroundTransparency = State and 0.4 or 0.4
+        base.BackgroundTransparency = State and 0.23 or 0.23
     end
 
 	function WindowFunctions:GetAcrylicBlurState()
