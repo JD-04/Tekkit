@@ -107,7 +107,7 @@ function MacLib:Window(Settings)
 	base.Name = "Base"
 	base.AnchorPoint = Vector2.new(0.5, 0.5)
 	base.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
-	base.BackgroundTransparency = Settings.AcrylicBlur and 0.3 or 0.3
+	base.BackgroundTransparency = Settings.AcrylicBlur and 0.4 or 0.4
 	base.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	base.BorderSizePixel = 0
 	base.Position = UDim2.fromScale(0.5, 0.5)
@@ -365,7 +365,7 @@ function MacLib:Window(Settings)
 			}):Play()
 		elseif State == "Hover" then
 			Tween(globalSettingsButton, TweenInfo.new(0.2, Enum.EasingStyle.Sine), {
-				ImageTransparency = 0.3
+				ImageTransparency = 0.4
 			}):Play()
 		end
 	end
@@ -1641,7 +1641,7 @@ function MacLib:Window(Settings)
 
 					local TweenSettings = {
 						DefaultTransparency = 0.5,
-						HoverTransparency = 0.3,
+						HoverTransparency = 0.4,
 
 						EasingStyle = Enum.EasingStyle.Sine
 					}
@@ -4333,7 +4333,7 @@ function MacLib:Window(Settings)
 					headerText.Text = HeaderFunctions.Settings.Text or HeaderFunctions.Settings.Name
 					headerText.TextColor3 = Color3.fromRGB(255, 255, 255)
 					headerText.TextSize = 16
-					headerText.TextTransparency = 0.3
+					headerText.TextTransparency = 0.4
 					headerText.TextWrapped = true
 					headerText.TextXAlignment = Enum.TextXAlignment.Left
 					headerText.AutomaticSize = Enum.AutomaticSize.Y
@@ -5192,7 +5192,7 @@ function MacLib:Window(Settings)
 			local TweenSettings = {
 				DefaultTransparency = 0,
 				DefaultTransparency2 = 0.5,
-				HoverTransparency = 0.3,
+				HoverTransparency = 0.4,
 				HoverTransparency2 = 0.6,
 
 				EasingStyle = Enum.EasingStyle.Sine
@@ -5320,7 +5320,7 @@ function MacLib:Window(Settings)
 
     function WindowFunctions:SetAcrylicBlurState(State)
         acrylicBlur = State
-        base.BackgroundTransparency = State and 0.3 or 0.3
+        base.BackgroundTransparency = State and 0.4 or 0.4
     end
 
 	function WindowFunctions:GetAcrylicBlurState()
