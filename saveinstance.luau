@@ -2168,7 +2168,8 @@ local function synsaveinstance(CustomOptions, CustomOptions2)
 
 	local RunService = service.RunService
 	local function wait_for_render()
-		RunService.RenderStepped:Wait()
+		-- Reemplazado RenderStepped:Wait() por task.wait(0.1) para evitar dependencia de RenderStepped
+		task.wait(0.1)
 	end
 
 	local Loading
@@ -2198,7 +2199,7 @@ local function synsaveinstance(CustomOptions, CustomOptions2)
 
 				while true do
 					StatusText.Text = text .. getLoadingText()
-					task.wait(0.1) -- Cambiado de task.wait() a task.wait(0.1)
+					task.wait(1)
 				end
 			end)
 			if waitForRender then
@@ -2241,7 +2242,7 @@ local function synsaveinstance(CustomOptions, CustomOptions2)
 				task.cancel(timeoutThread)
 
 				while coroutine.status(thread) ~= "suspended" do
-					task.wait(0.1) -- Cambiado de task.wait() a task.wait(0.1)
+					task.wait(1)
 				end
 
 				coroutine.resume(thread, ok, result)
@@ -2314,7 +2315,7 @@ local function synsaveinstance(CustomOptions, CustomOptions2)
 						return "-- Not found in already decompiled ScriptCache"
 					end
 
-					task.wait(0.1) -- Cambiado de task.wait() a task.wait(0.1)
+					task.wait(1) -- TODO Maybe remove?
 				end
 
 				local ok, result = run_with_loading("Decompiling " .. script.Name, true, nil, decomp, script)
@@ -3153,7 +3154,7 @@ local function synsaveinstance(CustomOptions, CustomOptions2)
 						currentlen += 1
 
 						if i ~= length then
-							task.wait(0.1) -- Cambiado de task.wait() a task.wait(0.1)
+							task.wait(1)
 						end
 					end
 				end
@@ -3319,7 +3320,7 @@ local function synsaveinstance(CustomOptions, CustomOptions2)
 				end
 
 				LocalPlayer:Kick("\n[SAFEMODE] Saving in Progress..\nPlease do NOT leave")
-				wait_for_render(1)
+				wait_for_render()
 				task.delay(10, service.GuiService.ClearError, service.GuiService)
 			end)
 
