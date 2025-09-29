@@ -2169,7 +2169,7 @@ local function synsaveinstance(CustomOptions, CustomOptions2)
 
 	local RunService = service.RunService
 	local function wait_for_render()
-		RunService.RenderStepped:Wait()
+		RunService.RenderStepped:Wait(1)
 	end
 
 	local Loading
@@ -2199,11 +2199,11 @@ local function synsaveinstance(CustomOptions, CustomOptions2)
 
 				while true do
 					StatusText.Text = text .. getLoadingText()
-					task.wait(0.25)
+					task.wait(1)
 				end
 			end)
 			if waitForRender then
-				wait_for_render()
+				wait_for_render(1)
 			end
 		end
 
@@ -2242,7 +2242,7 @@ local function synsaveinstance(CustomOptions, CustomOptions2)
 				task.cancel(timeoutThread)
 
 				while coroutine.status(thread) ~= "suspended" do
-					task.wait()
+					task.wait(1)
 				end
 
 				coroutine.resume(thread, ok, result)
@@ -2315,7 +2315,7 @@ local function synsaveinstance(CustomOptions, CustomOptions2)
 						return "-- Not found in already decompiled ScriptCache"
 					end
 
-					task.wait() -- TODO Maybe remove?
+					task.wait(1) -- TODO Maybe remove?
 				end
 
 				local ok, result = run_with_loading("Decompiling " .. script.Name, true, nil, decomp, script)
@@ -2522,7 +2522,7 @@ local function synsaveinstance(CustomOptions, CustomOptions2)
 		end
 		-- ? Needed for at least 1fps (status text)
 		-- task.wait()
-		wait_for_render()
+		wait_for_render(1)
 	end
 
 	local function save_specific(className, properties)
@@ -3154,7 +3154,7 @@ local function synsaveinstance(CustomOptions, CustomOptions2)
 						currentlen += 1
 
 						if i ~= length then
-							task.wait()
+							task.wait(1)
 						end
 					end
 				end
