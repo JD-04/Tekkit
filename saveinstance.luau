@@ -1578,8 +1578,9 @@ do
 						end
 					end
 				end
+			end
 
-				classList[ClassName] = Class
+			classList[ClassName] = Class
 		end
 
 		-- classList.Instance.Properties.Parent = nil -- ? Not sure if this is a better option than filtering through properties to remove this
@@ -1667,7 +1668,7 @@ local GLOBAL_ENV = getgenv and getgenv() or _G or shared
 	Saves instances with specified options. Example:
 	```lua
 	local Params = {
-		RepoURL = "https://raw.githubusercontent.com/JD-04/Tekkit/refs/heads/main/",
+		RepoURL = "https://raw.githubusercontent.com/luau/SynSaveInstance/main/",
 		SSI = "saveinstance",
 	}
 
@@ -2168,8 +2169,7 @@ local function synsaveinstance(CustomOptions, CustomOptions2)
 
 	local RunService = service.RunService
 	local function wait_for_render()
-		-- Reemplazado RenderStepped:Wait() por task.wait(0.1) para evitar dependencia de RenderStepped
-		task.wait(0.1)
+		RunService.RenderStepped:Wait()
 	end
 
 	local Loading
@@ -2199,7 +2199,7 @@ local function synsaveinstance(CustomOptions, CustomOptions2)
 
 				while true do
 					StatusText.Text = text .. getLoadingText()
-					task.wait(1)
+					task.wait(0.25)
 				end
 			end)
 			if waitForRender then
@@ -2242,7 +2242,7 @@ local function synsaveinstance(CustomOptions, CustomOptions2)
 				task.cancel(timeoutThread)
 
 				while coroutine.status(thread) ~= "suspended" do
-					task.wait(1)
+					task.wait()
 				end
 
 				coroutine.resume(thread, ok, result)
@@ -2315,7 +2315,7 @@ local function synsaveinstance(CustomOptions, CustomOptions2)
 						return "-- Not found in already decompiled ScriptCache"
 					end
 
-					task.wait(1) -- TODO Maybe remove?
+					task.wait() -- TODO Maybe remove?
 				end
 
 				local ok, result = run_with_loading("Decompiling " .. script.Name, true, nil, decomp, script)
@@ -2521,7 +2521,7 @@ local function synsaveinstance(CustomOptions, CustomOptions2)
 			StatusText.Text = "Saving.. Size: " .. get_size_format()
 		end
 		-- ? Needed for at least 1fps (status text)
-		-- task.wait(1)
+		-- task.wait()
 		wait_for_render()
 	end
 
@@ -3154,7 +3154,7 @@ local function synsaveinstance(CustomOptions, CustomOptions2)
 						currentlen += 1
 
 						if i ~= length then
-							task.wait(1)
+							task.wait()
 						end
 					end
 				end
