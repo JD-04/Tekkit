@@ -1,0 +1,359 @@
+local TweenService = game:GetService("TweenService")
+local UIS = game:GetService("UserInputService")
+local CoreGui = game:GetService("CoreGui")
+
+local gui = Instance.new("ScreenGui")
+gui.Name = "UNCMac"
+gui.ResetOnSpawn = false
+pcall(function()
+	gui.Parent = gethui and gethui() or CoreGui
+end)
+
+local window = Instance.new("Frame")
+window.Size = UDim2.new(0, 410, 0, 270)
+window.Position = UDim2.new(0.5, -205, 0.5, -135)
+window.BackgroundColor3 = Color3.fromRGB(20,20,20)
+window.BorderSizePixel = 0
+window.Parent = gui
+Instance.new("UICorner", window).CornerRadius = UDim.new(0,12)
+
+local stroke = Instance.new("UIStroke")
+stroke.Color = Color3.fromRGB(60,60,60)
+stroke.Transparency = 0.35
+stroke.Parent = window
+
+local gradient = Instance.new("UIGradient")
+gradient.Color = ColorSequence.new({
+	ColorSequenceKeypoint.new(0, Color3.fromRGB(30,30,30)),
+	ColorSequenceKeypoint.new(1, Color3.fromRGB(16,16,16))
+})
+gradient.Rotation = 90
+gradient.Parent = window
+
+local topbar = Instance.new("Frame")
+topbar.Size = UDim2.new(1,0,0,30)
+topbar.BackgroundColor3 = Color3.fromRGB(32,32,32)
+topbar.BorderSizePixel = 0
+topbar.Parent = window
+
+local topCorner = Instance.new("UICorner")
+topCorner.CornerRadius = UDim.new(0,12)
+topCorner.Parent = topbar
+
+local fix = Instance.new("Frame")
+fix.Size = UDim2.new(1,0,0,12)
+fix.Position = UDim2.new(0,0,1,-12)
+fix.BackgroundColor3 = Color3.fromRGB(32,32,32)
+fix.BorderSizePixel = 0
+fix.Parent = topbar
+
+local function createButton(color, posX)
+	local btn = Instance.new("Frame")
+	btn.Size = UDim2.new(0,8,0,8)
+	btn.Position = UDim2.new(0,posX,0,11)
+	btn.BackgroundColor3 = color
+	btn.BorderSizePixel = 0
+	btn.Parent = topbar
+	Instance.new("UICorner", btn).CornerRadius = UDim.new(1,0)
+	return btn
+end
+
+local closeBtn = createButton(Color3.fromRGB(255,95,86), 10)
+local miniBtn = createButton(Color3.fromRGB(255,189,46), 24)
+local maxBtn = createButton(Color3.fromRGB(39,201,63), 38)
+
+local title = Instance.new("TextLabel")
+title.Size = UDim2.new(1,0,1,0)
+title.BackgroundTransparency = 1
+title.Text = "UNC Environment Checker"
+title.Font = Enum.Font.GothamSemibold
+title.TextColor3 = Color3.fromRGB(235,235,235)
+title.TextSize = 11
+title.Parent = topbar
+
+local content = Instance.new("Frame")
+content.Size = UDim2.new(1,0,1,-30)
+content.Position = UDim2.new(0,0,0,30)
+content.BackgroundTransparency = 1
+content.Parent = window
+
+local uncLabel = Instance.new("TextLabel")
+uncLabel.Size = UDim2.new(1,-20,0,30)
+uncLabel.Position = UDim2.new(0,10,0,5)
+uncLabel.BackgroundTransparency = 1
+uncLabel.TextXAlignment = Enum.TextXAlignment.Left
+uncLabel.Font = Enum.Font.GothamBold
+uncLabel.TextSize = 18
+uncLabel.TextColor3 = Color3.fromRGB(255,255,255)
+uncLabel.Text = "UNC Rate: 0%"
+uncLabel.Parent = content
+
+local subtitle = Instance.new("TextLabel")
+subtitle.Size = UDim2.new(1,-20,0,16)
+subtitle.Position = UDim2.new(0,10,0,32)
+subtitle.BackgroundTransparency = 1
+subtitle.TextXAlignment = Enum.TextXAlignment.Left
+subtitle.Font = Enum.Font.Gotham
+subtitle.TextSize = 10
+subtitle.TextColor3 = Color3.fromRGB(140,140,140)
+subtitle.Text = "Scanning executor environment..."
+subtitle.Parent = content
+
+local progressBG = Instance.new("Frame")
+progressBG.Size = UDim2.new(1,-20,0,6)
+progressBG.Position = UDim2.new(0,10,0,52)
+progressBG.BackgroundColor3 = Color3.fromRGB(40,40,40)
+progressBG.BorderSizePixel = 0
+progressBG.Parent = content
+Instance.new("UICorner", progressBG).CornerRadius = UDim.new(1,0)
+
+local progress = Instance.new("Frame")
+progress.Size = UDim2.new(0,0,1,0)
+progress.BackgroundColor3 = Color3.fromRGB(0,122,255)
+progress.BorderSizePixel = 0
+progress.Parent = progressBG
+Instance.new("UICorner", progress).CornerRadius = UDim.new(1,0)
+
+local logs = Instance.new("ScrollingFrame")
+logs.Size = UDim2.new(1,-20,1,-75)
+logs.Position = UDim2.new(0,10,0,65)
+logs.BackgroundColor3 = Color3.fromRGB(14,14,14)
+logs.BorderSizePixel = 0
+logs.ScrollBarThickness = 2
+logs.CanvasSize = UDim2.new()
+logs.Parent = content
+Instance.new("UICorner", logs).CornerRadius = UDim.new(0,8)
+
+local logsStroke = Instance.new("UIStroke")
+logsStroke.Color = Color3.fromRGB(40,40,40)
+logsStroke.Transparency = 0.5
+logsStroke.Parent = logs
+
+local layout = Instance.new("UIListLayout")
+layout.Padding = UDim.new(0,2)
+layout.Parent = logs
+
+layout:GetPropertyChangedSignal("AbsoluteContentSize"):Connect(function()
+	logs.CanvasSize = UDim2.new(0,0,0,layout.AbsoluteContentSize.Y + 5)
+end)
+
+local function log(text, color)
+	local label = Instance.new("TextLabel")
+	label.Size = UDim2.new(1,-6,0,18)
+	label.BackgroundTransparency = 1
+	label.TextXAlignment = Enum.TextXAlignment.Left
+	label.Font = Enum.Font.Code
+	label.TextSize = 10
+	label.TextColor3 = color
+	label.Text = " "..text
+	label.Parent = logs
+end
+
+local dragging = false
+local dragInput
+local dragStart
+local startPos
+
+topbar.InputBegan:Connect(function(input)
+	if input.UserInputType == Enum.UserInputType.MouseButton1 then
+		dragging = true
+		dragStart = input.Position
+		startPos = window.Position
+
+		input.Changed:Connect(function()
+			if input.UserInputState == Enum.UserInputState.End then
+				dragging = false
+			end
+		end)
+	end
+end)
+
+topbar.InputChanged:Connect(function(input)
+	if input.UserInputType == Enum.UserInputType.MouseMovement then
+		dragInput = input
+	end
+end)
+
+UIS.InputChanged:Connect(function(input)
+	if input == dragInput and dragging then
+		local delta = input.Position - dragStart
+		window.Position = UDim2.new(
+			startPos.X.Scale,
+			startPos.X.Offset + delta.X,
+			startPos.Y.Scale,
+			startPos.Y.Offset + delta.Y
+		)
+	end
+end)
+
+local minimized = false
+local maximized = false
+local oldSize = window.Size
+local oldPos = window.Position
+local originalContentVisible = true
+
+local uiElementsToHide = {uncLabel, subtitle, progressBG, logs}
+
+closeBtn.InputBegan:Connect(function(input)
+	if input.UserInputType == Enum.UserInputType.MouseButton1 then
+		gui:Destroy()
+	end
+end)
+
+miniBtn.InputBegan:Connect(function(input)
+	if input.UserInputType == Enum.UserInputType.MouseButton1 then
+		minimized = not minimized
+
+		if minimized then
+			originalContentVisible = content.Visible
+			content.Visible = false
+
+			for _, element in ipairs(uiElementsToHide) do
+				element.Visible = false
+			end
+
+			TweenService:Create(window, TweenInfo.new(0.2, Enum.EasingStyle.Quad), {
+				Size = UDim2.new(0, 250, 0, 30)
+			}):Play()
+		else
+			for _, element in ipairs(uiElementsToHide) do
+				element.Visible = true
+			end
+
+			content.Visible = originalContentVisible
+			local targetSize = maximized and UDim2.new(1,-20,1,-20) or oldSize
+
+			TweenService:Create(window, TweenInfo.new(0.2, Enum.EasingStyle.Quad), {
+				Size = targetSize
+			}):Play()
+		end
+	end
+end)
+
+maxBtn.InputBegan:Connect(function(input)
+	if input.UserInputType == Enum.UserInputType.MouseButton1 then
+		if minimized then
+			minimized = false
+			content.Visible = originalContentVisible
+
+			for _, element in ipairs(uiElementsToHide) do
+				element.Visible = true
+			end
+		end
+
+		maximized = not maximized
+
+		if maximized then
+			oldSize = window.Size
+			oldPos = window.Position
+
+			TweenService:Create(window, TweenInfo.new(0.3, Enum.EasingStyle.Quad), {
+				Size = UDim2.new(1,-20,1,-20),
+				Position = UDim2.new(0,10,0,10)
+			}):Play()
+		else
+			TweenService:Create(window, TweenInfo.new(0.3, Enum.EasingStyle.Quad), {
+				Size = oldSize,
+				Position = oldPos
+			}):Play()
+		end
+	end
+end)
+
+local TESTS = {
+	"loadstring", "hookfunction", "getgc", "getgenv", "getrenv", "getsenv",
+	"Drawing", "WebSocket", "request", "setclipboard", "newcclosure", "hookmetamethod",
+	"cloneref", "compareinstances", "mouse1click", "setfpscap", "debug.getconstant",
+	"debug.getconstants", "cache.invalidate", "crypt.encrypt", "crypt.decrypt",
+	"getconnections", "getloadedmodules", "identifyexecutor", "queue_on_teleport",
+	"lz4compress", "lz4decompress", "messagebox", "cache.replace", "debug.getinfo",
+	"debug.getproto", "debug.getstack", "debug.setupvalue", "readfile", "writefile",
+	"appendfile", "makefolder", "isfile", "isfolder", "delfile", "delfolder",
+	"mouse2click", "mousemoveabs", "fireclickdetector", "gethiddenproperty",
+	"sethiddenproperty", "getinstances", "getnilinstances", "setscriptable",
+	"getrawmetatable", "setrawmetatable", "isreadonly", "setreadonly",
+	"getrunningscripts", "getscriptbytecode", "getscripthash", "getthreadidentity",
+	"setthreadidentity", "Drawing.new", "Drawing.Fonts", "getrenderproperty",
+	"setrenderproperty", "cleardrawcache"
+}
+
+local function getGlobal(path)
+	local env = getfenv(0)
+
+	while env and path ~= "" do
+		local name, nextPath = string.match(path, "^([^.]+)%.?(.*)$")
+		env = env[name]
+		path = nextPath
+	end
+
+	return env
+end
+
+local passed = 0
+local total = #TESTS
+
+local function updateUI()
+	local unc = math.floor((passed / total) * 100)
+
+	uncLabel.Text = "UNC Rate: "..unc.."%"
+
+	TweenService:Create(progress, TweenInfo.new(0.2), {
+		Size = UDim2.new(unc / 100,0,1,0)
+	}):Play()
+
+	if unc >= 95 then
+		progress.BackgroundColor3 = Color3.fromRGB(52,199,89)
+	elseif unc >= 75 then
+		progress.BackgroundColor3 = Color3.fromRGB(255,159,10)
+	else
+		progress.BackgroundColor3 = Color3.fromRGB(255,69,58)
+	end
+end
+
+log("Starting UNC validation...", Color3.fromRGB(0,122,255))
+
+for _, api in ipairs(TESTS) do
+	task.spawn(function()
+		local exists = getGlobal(api) ~= nil
+
+		if exists then
+			passed += 1
+			log("✓ "..api, Color3.fromRGB(52,199,89))
+		else
+			log("✗ "..api, Color3.fromRGB(255,69,58))
+		end
+
+		updateUI()
+	end)
+
+	task.wait(0.02)
+end
+
+task.spawn(function()
+	repeat task.wait() until passed >= total or passed + 5 >= total
+
+	local unc = math.floor((passed / total) * 100)
+
+	log("----------------------------------------", Color3.fromRGB(80,80,80))
+
+	if unc >= 95 then
+		log("Executor Quality: Excellent", Color3.fromRGB(52,199,89))
+		subtitle.Text = "Excellent executor compatibility"
+
+	elseif unc >= 75 then
+		log("Executor Quality: Good", Color3.fromRGB(255,159,10))
+		subtitle.Text = "Good executor compatibility"
+
+	elseif unc >= 50 then
+		log("Executor Quality: Average", Color3.fromRGB(255,159,10))
+		subtitle.Text = "Average executor compatibility"
+
+	else
+		log("Executor Quality: Poor", Color3.fromRGB(255,69,58))
+		subtitle.Text = "Poor executor compatibility"
+	end
+
+	log("Final UNC Rate: "..unc.."%", Color3.fromRGB(255,255,255))
+end)
+
+updateUI()
